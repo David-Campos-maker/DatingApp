@@ -1,0 +1,22 @@
+$properties: ('margin': 'm' , 'padding': 'p');
+$directions: ('a': ('') , 't': ('-top') , 'r': ('-right') , 'b': ('-bottom') , 'l': ('-left') , 'y': ('-top' , '-bottom') , 'x': ('-left' , '-right'));
+$sizes: ('none': 0 , 'xxs': 4 , 'xs': 8 , 'sm': 16 , 'md': 24 , 'lg': 32 , 'xl': 48 , 'xxl': 64 , 'xxxl': 128);
+$flex-gap-constraints: ('column-': 'cg' , 'row-': 'rg', '': 'ga');
+
+@each $alias, $size in $sizes {
+  @each $prop, $propAlias in $properties {
+    @each $direction, $cssProps in $directions {
+      .app-#{$propAlias}#{$direction}-#{$alias} {
+        @each $cssProp in $cssProps {
+          #{$prop}#{$cssProp}: #{$size}px;
+        }
+      }
+    }
+  }
+
+  @each $prop, $constraint in $flex-gap-constraints {
+    .app-#{$constraint}-#{$alias} {
+      #{$prop}gap: #{$size}px;
+    }
+  }
+}

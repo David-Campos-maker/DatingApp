@@ -1,0 +1,28 @@
+<div class="container app-mt-xl">
+  <div class="app-ta-center">
+
+    @if (!registerMode) {
+      <h1>Find your match</h1>
+      <p class="app-fs-md app-fw-light">Come on view your matches... all you need to do is sign up!</p>
+      <div class="app-ta-center">
+        <button (click)="registerToggle()" class="btn btn-primary btn-lg app-mr-xs">Register</button>
+        <button class="btn btn-info btn-lg app-mr-xs">Learn more</button>
+      </div>
+    } @else {
+      <div class="container">
+        <div class="row main-axis-alignment_center">
+          <div class="col-4">
+            <!--
+              [] Input on a component
+              () Output on a component
+            -->
+            <app-register
+              (cancelRegister)="cancelRegisterMode($event)"
+            ></app-register>
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

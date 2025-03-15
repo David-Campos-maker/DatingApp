@@ -1,0 +1,15 @@
+.app-column {
+  display: flex;
+  flex-direction: column;
+}
+.app-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-flex-stretch {
+  flex: 1 auto;
+}
+.app-flex-shrink {
+  flex: 2 auto;
+}

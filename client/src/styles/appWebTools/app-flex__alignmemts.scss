@@ -1,0 +1,28 @@
+.main-axis-alignment_space-between {
+  justify-content: space-between;
+}
+.main-axis-alignment_space-evenly {
+  justify-content: space-evenly;
+}
+.main-axis-alignment_center {
+  justify-content: center;
+}
+.main-axis-alignment_start {
+  justify-content: start;
+}
+.main-axis-alignment_end {
+  justify-content: end;
+}
+.main-axis-alignment_space-around {
+  justify-content: space-around;
+}
+
+.cross-axis-alignment_center {
+  align-items: center;
+}
+.cross-axis-alignment_start {
+  align-items: start;
+}
+.cross-axis-alignment_end {
+  align-items: end;
+}

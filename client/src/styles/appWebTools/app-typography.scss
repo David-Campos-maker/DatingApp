@@ -1,0 +1,28 @@
+$font-size-standards: ('xxs': 12 , 'xs': 14 , 'sm': 16 , 'md': 18 , 'lg': 24 , 'xl': 28 , 'xxl': 32 , 'xxxl': 64);
+
+@each $font-size , $value in $font-size-standards {
+  .app-fs-#{$font-size} {
+    font-size: #{$value}px;
+  }
+}
+
+$font-weights: ('bold': 700 , 'semibold': 600 , 'medium': 500 , 'regular': 400 , 'light': 300);
+
+@each $font-weight , $value in $font-weights {
+  .app-fw-#{$font-weight} {
+    font-weight: #{$value};
+  }
+}
+
+.app-ta-justify {
+  text-align: justify;
+}
+.app-ta-center {
+  text-align: center;
+}
+.app-ta-start {
+  text-align: start;
+}
+.app-ta-end {
+  text-align: end;
+}
