@@ -5,11 +5,10 @@ import Member from '../../_models/member';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @Component({
-  selector: 'app-member-detail',
-  standalone: true,
-  imports: [TabsModule],
-  templateUrl: './member-detail.component.html',
-  styleUrl: './member-detail.component.scss'
+    selector: 'app-member-detail',
+    imports: [TabsModule],
+    templateUrl: './member-detail.component.html',
+    styleUrl: './member-detail.component.scss'
 })
 export class MemberDetailComponent implements OnInit {
   private readonly memberService = inject(MembersService);

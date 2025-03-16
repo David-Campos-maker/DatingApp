@@ -4,11 +4,10 @@ import Member from '../../_models/member';
 import { MemberCardComponent } from "../member-card/member-card.component";
 
 @Component({
-  selector: 'app-member-list',
-  standalone: true,
-  imports: [MemberCardComponent],
-  templateUrl: './member-list.component.html',
-  styleUrl: './member-list.component.scss'
+    selector: 'app-member-list',
+    imports: [MemberCardComponent],
+    templateUrl: './member-list.component.html',
+    styleUrl: './member-list.component.scss'
 })
 export class MemberListComponent implements OnInit {
   private readonly membersService = inject(MembersService);
