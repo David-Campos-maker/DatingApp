@@ -162,3 +162,5 @@ C:\Users\Dav_i\.Net Course\DatingApp\API\bin\Debug\net9.0\Microsoft.Extensions.L
 C:\Users\Dav_i\.Net Course\DatingApp\API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\Users\Dav_i\.Net Course\DatingApp\API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Dav_i\.Net Course\DatingApp\API\obj\Debug\net9.0\API.sourcelink.json
+C:\Users\Dav_i\.Net Course\DatingApp\API\bin\Debug\net9.0\Data\UserSeedData.json
+C:\Users\Dav_i\.Net Course\DatingApp\API\bin\Debug\net9.0\AutoMapper.dll

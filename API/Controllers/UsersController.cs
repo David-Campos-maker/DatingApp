@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
+
         public UsersController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
@@ -22,16 +26,15 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var users = await _userRepository.GetAllAsync();
+            var users = await _userRepository.GetMembersAsync();
 
             return Ok(users);
         }
 
-        [Authorize]
-        [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        [HttpGet("{username}")]
+        public async Task<IActionResult> GetUserByUsername([FromRoute] string username)
         {
-            var user = await _userRepository.GetByIdAsync(id);
+            var user = await _userRepository.GetMemberAsync(username);
 
             if (user == null) return NotFound();
 
