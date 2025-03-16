@@ -5,13 +5,13 @@ import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const accoutService = inject(AccountService);
-  const taster = inject(ToastrService);
+  const toastr = inject(ToastrService);
 
   if (accoutService.currentUser()) {
     return true;
   }
   else {
-    taster.error('You shall not pass!');
+    toastr.error('You shall not pass!');
     return false;
   }
 };
