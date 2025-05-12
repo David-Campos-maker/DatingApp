@@ -44,7 +44,9 @@ namespace API.Repository
 
         public async Task<AppUser> RegisterUserAsync(RegisterDto registerDto)
         {
-            return await _context.Users.FirstOrDefaultAsync(x => x.Id == 1);
+            return await _context.Users
+            .Include(p => p.Photos)
+            .FirstOrDefaultAsync(x => x.Id == 1);
             // using var hmac = new HMACSHA512();
 
             // var user = new AppUser
@@ -62,8 +64,10 @@ namespace API.Repository
 
         public async Task<AppUser?> LoginAsync(LoginDto loginDto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => 
-                x.UserName == loginDto.Username.ToLower());
+            var user = await _context.Users
+                .Include(p=> p.Photos)
+                .FirstOrDefaultAsync(x => 
+                    x.UserName == loginDto.Username.ToLower());
 
             if (user == null) return null;
 
