@@ -44,22 +44,18 @@ namespace API.Repository
 
         public async Task<AppUser> RegisterUserAsync(RegisterDto registerDto)
         {
-            return await _context.Users
-            .Include(p => p.Photos)
-            .FirstOrDefaultAsync(x => x.Id == 1);
-            // using var hmac = new HMACSHA512();
+            using var hmac = new HMACSHA512();
 
-            // var user = new AppUser
-            // {
-            //     UserName = registerDto.Username.ToLower(),
-            //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            //     PasswordSalt = hmac.Key
-            // };
+            var user = _mapper.Map<AppUser>(registerDto);
 
-            // _context.Users.Add(user);
-            // await _context.SaveChangesAsync();
+            user.UserName = registerDto.Username.ToLower();
+            user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
+            user.PasswordSalt = hmac.Key;
 
-            // return user;
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return user;
         }
 
         public async Task<AppUser?> LoginAsync(LoginDto loginDto)
